@@ -17,17 +17,15 @@ const protect = asyncHandler(async (req, res, next) => {
       const decode = jwt.verify(token, process.env.JWT_SECRET);
 
       // Get user from the token
-      let temp = await User.findById(decode.id).select("-password");
-
-      if (!temp) throw new Error("UNF");
-
-      req.user = temp;
+      req.user = await User.findById(decode.id).select("-password");
+      if (!req.user) throw "User not found";
 
       next();
     } catch (error) {
       console.log(error);
       res.status(401);
-      if (error.message === "UNF") throw new Error("User not found!");
+      if (error === "User not found")
+        throw new Error("User not found, please login again.");
       throw new Error("Not authorized");
     }
   }
