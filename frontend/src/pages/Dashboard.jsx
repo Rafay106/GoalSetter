@@ -19,7 +19,7 @@ export default function Dashboard() {
   useEffect(() => {
     if (!user) navigate("/login");
     if (isError) toast.error(message);
-    else dispatch(getGoals());
+    if (user && !isError) dispatch(getGoals());
     return () => dispatch(reset());
   }, [user, isError, message, navigate, dispatch]);
 
