@@ -213,3 +213,8 @@ h3 {
     font-size: 1.5rem;
   }
 }
+
+.header #first {
+  display: flex;
+  gap: 1rem;
+}

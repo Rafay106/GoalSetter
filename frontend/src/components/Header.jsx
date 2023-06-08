@@ -9,9 +9,13 @@ export default function Header() {
   const { user } = useSelector((state) => state.auth);
 
   const onLogout = async () => {
-    await dispatch(logout());
-    await dispatch(reset());
-    await navigate("/login");
+    dispatch(logout());
+    dispatch(reset());
+    navigate("/");
+  };
+
+  const gotoProfile = async () => {
+    navigate(`/profile/${user._id}`);
   };
 
   return (
@@ -21,10 +25,17 @@ export default function Header() {
       </div>
       <ul>
         {user ? (
-          <li>
-            <button className="btn" onClick={onLogout}>
-              <FaSignOutAlt /> Logout
-            </button>
+          <li id="first">
+            <span>
+              <button className="btn" onClick={onLogout}>
+                <FaSignOutAlt /> Logout
+              </button>
+            </span>
+            <span>
+              <button className="btn" onClick={gotoProfile}>
+                <FaUser /> Profile
+              </button>
+            </span>
           </li>
         ) : (
           <>

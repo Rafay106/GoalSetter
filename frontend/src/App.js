@@ -5,6 +5,8 @@ import Dashboard from "./pages/Dashboard";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Header from "./components/Header";
+import UpdateGoal from "./pages/UpdateGoal";
+import UserProfile from "./pages/UserProfile";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/update/:goalId" element={<UpdateGoal />} />
+            <Route path="/profile/:userId" element={<UserProfile />} />
           </Routes>
         </div>
       </Router>
