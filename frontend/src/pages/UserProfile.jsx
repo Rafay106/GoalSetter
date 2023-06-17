@@ -13,7 +13,7 @@ function UserProfile() {
                 {key}: {val}
               </p>
             );
-          }
+          } else return <></>;
         })}
       </div>
     </div>

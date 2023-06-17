@@ -13,6 +13,7 @@ connectDB();
 const app = express();
 
 app.use(CORS());
+app.options("*", CORS());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const API_URL = "api/goals/";
-const BASE_URL = "http://localhost:10000/";
+const BASE_URL = "https://goalsetter-mern-b8dk.onrender.com";
+
 // Set Goal
 const createGoal = async (goalData, token) => {
   const config = {
@@ -21,7 +22,7 @@ const getGoals = async (token) => {
       Authorization: `Bearer ${token}`,
     },
   };
-  const response = await axios.get(BASE_URL + API_URL, config);
+  const response = await axios.get(API_URL, config);
 
   return response.data;
 };
