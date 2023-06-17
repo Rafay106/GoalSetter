@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "proxy": "http://localhost:5000/",
+  "proxy": "https://goalsetter-mern-b8dk.onrender.com/",
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "*",

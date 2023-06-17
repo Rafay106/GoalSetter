@@ -2,18 +2,19 @@ import { useSelector } from "react-redux";
 
 function UserProfile() {
   const { user } = useSelector((state) => state.auth);
-  // console.log(user);
-  let x = Object.entries(user);
-  console.log(x);
   return (
-    <div>
+    <div className="user-details">
       <h1>User Details</h1>
       <div>
-        {Object.entries(user).map(([key, val]) => (
-          <p key={key}>
-            {key}: {val}
-          </p>
-        ))}
+        {Object.entries(user).map(([key, val]) => {
+          if (key !== "token") {
+            return (
+              <p key={key}>
+                {key}: {val}
+              </p>
+            );
+          }
+        })}
       </div>
     </div>
   );
