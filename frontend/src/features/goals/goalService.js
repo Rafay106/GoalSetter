@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_URL = "api/goals/";
-const BASE_URL = "http://localhost:5000/";
+const BASE_URL = "http://localhost:10000/";
 // Set Goal
 const createGoal = async (goalData, token) => {
   const config = {
